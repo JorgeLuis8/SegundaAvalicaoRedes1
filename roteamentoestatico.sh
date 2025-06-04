@@ -128,12 +128,11 @@ docker exec webserver-lan4 bash -c "ip route del default || true && ip route add
 echo "Gateways padrão configurados."
 echo "--------------------------------------------------"
 
-echo "### Passo 11: Criar Páginas Web Personalizadas ###"
-echo "Criando index.html para Portal Empresarial Alpha (webserver-lan2)..."
-docker exec webserver-lan2 bash -c 'cat > /usr/share/nginx/html/index.html << EOF
+docker exec webserver-lan2 bash -c 'cat > /usr/share/nginx/html/index.html <<EOF
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
+    <meta charset="UTF-8" />
     <title>Portal Empresarial Alpha</title>
     <style>
         body { 
@@ -173,11 +172,13 @@ docker exec webserver-lan2 bash -c 'cat > /usr/share/nginx/html/index.html << EO
 </html>
 EOF'
 
+
 echo "Criando index.html para Centro de Inovação Beta (webserver-lan3)..."
 docker exec webserver-lan3 bash -c 'cat > /usr/share/nginx/html/index.html << EOF
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
+    <meta charset="UTF-8" />
     <title>Centro de Inovação Beta</title>
     <style>
         body { 
@@ -220,8 +221,9 @@ EOF'
 echo "Criando index.html para Hub Tecnológico Gamma (webserver-lan4)..."
 docker exec webserver-lan4 bash -c 'cat > /usr/share/nginx/html/index.html << EOF
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
+    <meta charset="UTF-8" />
     <title>Hub Tecnológico Gamma</title>
     <style>
         body { 
@@ -260,6 +262,7 @@ docker exec webserver-lan4 bash -c 'cat > /usr/share/nginx/html/index.html << EO
 </body>
 </html>
 EOF'
+
 echo "Páginas web personalizadas criadas."
 echo "--------------------------------------------------"
 

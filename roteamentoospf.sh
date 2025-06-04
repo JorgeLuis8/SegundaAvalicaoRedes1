@@ -156,27 +156,141 @@ docker exec webserver-lan4 bash -c "ip route del default 2>/dev/null || true && 
 echo "Gateway padrão configurado."
 echo ""
 
-# Passo 11: Criar Páginas Web Personalizadas
-echo "### Passo 11: Criando Páginas Web Personalizadas ###"
-# Site A (Portal Empresarial Alpha)
-docker exec webserver-lan2 bash -c 'cat > /usr/share/nginx/html/index.html << EOF
+docker exec webserver-lan2 bash -c 'cat > /usr/share/nginx/html/index.html <<EOF
 <!DOCTYPE html>
-<html><head><title>Portal Empresarial Alpha</title><style>body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;text-align:center;padding:50px;margin:0}.container{max-width:600px;margin:0 auto;background:rgba(255,255,255,0.1);padding:40px;border-radius:15px;backdrop-filter:blur(10px);box-shadow:0 8px 32px rgba(0,0,0,0.3)}h1{color:#fff;font-size:2.5em;margin-bottom:20px}p{font-size:1.2em;margin:15px 0}.info{background:rgba(255,255,255,0.2);padding:15px;border-radius:10px;margin:20px 0}</style></head><body><div class="container"><h1>🌟 Portal Empresarial Alpha 🌟</h1><p>Bem-vindo ao nosso portal corporativo!</p><div class="info"><p><strong>Localização:</strong> Servidor na LAN2</p><p><strong>IP do Servidor:</strong> 192.168.2.200</p><p><strong>Domínio:</strong> www.alpha-empresa.com</p></div><p>Soluções empresariais de alta qualidade</p></div></body></html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Portal Empresarial Alpha</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; 
+            text-align: center; 
+            padding: 50px; 
+            margin: 0;
+        }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            background: rgba(255,255,255,0.1); 
+            padding: 40px; 
+            border-radius: 15px; 
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        h1 { color: #fff; font-size: 2.5em; margin-bottom: 20px; }
+        p { font-size: 1.2em; margin: 15px 0; }
+        .info { background: rgba(255,255,255,0.2); padding: 15px; border-radius: 10px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌟 Portal Empresarial Alpha 🌟</h1>
+        <p>Bem-vindo ao nosso portal corporativo!</p>
+        <div class="info">
+            <p><strong>Localização:</strong> Servidor na LAN2</p>
+            <p><strong>IP do Servidor:</strong> 192.168.2.200</p>
+            <p><strong>Domínio:</strong> www.alpha-empresa.com</p>
+        </div>
+        <p>Soluções empresariais de alta qualidade</p>
+    </div>
+</body>
+</html>
 EOF'
 
-# Site B (Centro de Inovação Beta)
+
+echo "Criando index.html para Centro de Inovação Beta (webserver-lan3)..."
 docker exec webserver-lan3 bash -c 'cat > /usr/share/nginx/html/index.html << EOF
 <!DOCTYPE html>
-<html><head><title>Centro de Inovação Beta</title><style>body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%);color:white;text-align:center;padding:50px;margin:0}.container{max-width:600px;margin:0 auto;background:rgba(255,255,255,0.1);padding:40px;border-radius:15px;backdrop-filter:blur(10px);box-shadow:0 8px 32px rgba(0,0,0,0.3)}h1{color:#fff;font-size:2.5em;margin-bottom:20px}p{font-size:1.2em;margin:15px 0}.info{background:rgba(255,255,255,0.2);padding:15px;border-radius:10px;margin:20px 0}</style></head><body><div class="container"><h1>🚀 Centro de Inovação Beta 🚀</h1><p>Hub de tecnologia e inovação!</p><div class="info"><p><strong>Localização:</strong> Servidor na LAN3</p><p><strong>IP do Servidor:</strong> 192.168.3.200</p><p><strong>Domínio:</strong> www.beta-inovacao.com</p></div><p>Desenvolvendo o futuro da tecnologia</p></div></body></html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Centro de Inovação Beta</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white; 
+            text-align: center; 
+            padding: 50px; 
+            margin: 0;
+        }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            background: rgba(255,255,255,0.1); 
+            padding: 40px; 
+            border-radius: 15px; 
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        h1 { color: #fff; font-size: 2.5em; margin-bottom: 20px; }
+        p { font-size: 1.2em; margin: 15px 0; }
+        .info { background: rgba(255,255,255,0.2); padding: 15px; border-radius: 10px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Centro de Inovação Beta 🚀</h1>
+        <p>Hub de tecnologia e inovação!</p>
+        <div class="info">
+            <p><strong>Localização:</strong> Servidor na LAN3</p>
+            <p><strong>IP do Servidor:</strong> 192.168.3.200</p>
+            <p><strong>Domínio:</strong> www.beta-inovacao.com</p>
+        </div>
+        <p>Desenvolvendo o futuro da tecnologia</p>
+    </div>
+</body>
+</html>
 EOF'
 
-# Site C (Hub Tecnológico Gamma)
+echo "Criando index.html para Hub Tecnológico Gamma (webserver-lan4)..."
 docker exec webserver-lan4 bash -c 'cat > /usr/share/nginx/html/index.html << EOF
 <!DOCTYPE html>
-<html><head><title>Hub Tecnológico Gamma</title><style>body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#4facfe 0%,#00f2fe 100%);color:white;text-align:center;padding:50px;margin:0}.container{max-width:600px;margin:0 auto;background:rgba(255,255,255,0.1);padding:40px;border-radius:15px;backdrop-filter:blur(10px);box-shadow:0 8px 32px rgba(0,0,0,0.3)}h1{color:#fff;font-size:2.5em;margin-bottom:20px}p{font-size:1.2em;margin:15px 0}.info{background:rgba(255,255,255,0.2);padding:15px;border-radius:10px;margin:20px 0}</style></head><body><div class="container"><h1>⚡ Hub Tecnológico Gamma ⚡</h1><p>Centro de excelência em tecnologia!</p><div class="info"><p><strong>Localização:</strong> Servidor na LAN4</p><p><strong>IP do Servidor:</strong> 192.168.4.200</p><p><strong>Domínio:</strong> www.gamma-tech.com</p></div><p>Transformando ideias em realidade digital</p></div></body></html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Hub Tecnológico Gamma</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white; 
+            text-align: center; 
+            padding: 50px; 
+            margin: 0;
+        }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            background: rgba(255,255,255,0.1); 
+            padding: 40px; 
+            border-radius: 15px; 
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        h1 { color: #fff; font-size: 2.5em; margin-bottom: 20px; }
+        p { font-size: 1.2em; margin: 15px 0; }
+        .info { background: rgba(255,255,255,0.2); padding: 15px; border-radius: 10px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚡ Hub Tecnológico Gamma ⚡</h1>
+        <p>Centro de excelência em tecnologia!</p>
+        <div class="info">
+            <p><strong>Localização:</strong> Servidor na LAN4</p>
+            <p><strong>IP do Servidor:</strong> 192.168.4.200</p>
+            <p><strong>Domínio:</strong> www.gamma-tech.com</p>
+        </div>
+        <p>Transformando ideias em realidade digital</p>
+    </div>
+</body>
+</html>
 EOF'
-echo "Páginas web personalizadas criadas."
-echo ""
+
 
 # Passo 12: Configurar DNS/Hosts nos Containers
 echo "### Passo 12: Configurando /etc/hosts nos Containers ###"
